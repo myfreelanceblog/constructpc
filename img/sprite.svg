@@ -20,8 +20,8 @@
 	<symbol viewBox="0 0 23 23" fill="none" id="close">
 		<path d="M1.5 21.5L21.5 1.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M21.5 21.5L1.50001 1.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
 	</symbol>
-	<symbol viewBox="0 0 26 26" fill="none" id="slider-nav">
-		<path d="M7.62061 13.0001L15.6896 8.34147L15.6896 17.6587L7.62061 13.0001Z" fill="white"/>
+	<symbol viewBox="0 0 58 58" fill="none" id="slider-nav">
+		<path d="M17 29L35 18.6077L35 39.3923L17 29Z" fill="white"/>
 	</symbol>
 	<symbol viewBox="0 0 15 9" fill="none" id="down">
 		<path d="M13.0872 0.5L1.08716 0.5L7.08716 7.5L13.0872 0.5Z" stroke="currentColor"/>

@@ -91,15 +91,27 @@
         <div class="container">
             <div class="what">
                 <h2 class="title">ЧТО ДЕЛАЕТ НАС ОСОБЕННЫМИ?</h2>
-                <div class="what-box">
-                    <div class="what-content">
-                        <div class="what__title">ИНДИВИДУАЛЬНЫЙ ПК = ИДЕАЛЬНЫЙ ДЛЯ ВАС</div>
-                        <div class="what__desc">Вы покупаете не просто набор деталей,а готовое и идеально настроенное решение, созданное исключительно для вас</div>
-                        <a href="javascript:void(0);" class="what__btn">Узнать подробнее</a>
+                <div class="what-slider">
+                    <div class="what__swiper swiper">
+                        <div class="swiper-wrapper">
+                            <?php for($i = 0; $i < 3; $i++): ?>
+                            <div class="swiper-slide">
+                                <div class="what-box">
+                                    <div class="what-content">
+                                        <div class="what__title">ИНДИВИДУАЛЬНЫЙ ПК = ИДЕАЛЬНЫЙ ДЛЯ ВАС</div>
+                                        <div class="what__desc">Вы покупаете не просто набор деталей,а готовое и идеально настроенное решение, созданное исключительно для вас</div>
+                                        <a href="javascript:void(0);" class="what__btn">Узнать подробнее</a>
+                                    </div>
+                                    <div class="what-img">
+                                        <img src="img/what.jpg" alt="what" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <?php endfor; ?>
+                        </div>
                     </div>
-                    <div class="what-img">
-                        <img src="img/what.jpg" alt="what" loading="lazy">
-                    </div>
+                    <button class="what-prev nav-btn nav-prev" type="button" aria-label="Предыдущий слайд"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
+                    <button class="what-next nav-btn nav-next" type="button" aria-label="Следующий слайд"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
                 </div>
             </div>
         </div>
@@ -125,8 +137,8 @@
                             <?php endfor; ?>
                         </div>
                     </div>
-                    <button class="rev__nav rev-prev" type="button" aria-label="следующий отзыв"><svg width="26" height="26"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
-                    <button class="rev__nav rev-next" type="button" aria-label="следующий отзыв"><svg width="26" height="26"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
+                    <button class="rev__nav rev-prev" type="button" aria-label="следующий отзыв"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
+                    <button class="rev__nav rev-next" type="button" aria-label="следующий отзыв"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
                 </div>
             </div>
         </div>

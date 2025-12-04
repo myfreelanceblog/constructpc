@@ -8,6 +8,48 @@ jQuery(document).ready(function($){
             clickable: true,
         },
     })
+
+    var whatSwiper = new Swiper('.what__swiper', {
+		loop: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+			nextEl: '.what-next',
+			prevEl: '.what-prev',
+        },
+    })
+    
+    var galBigSwiper = new Swiper('.gal-big__swiper', {
+		loop: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+    })
+
+    var galSmallSwiper = new Swiper('.gal-small__swiper', {
+		loop: false,
+        slidesPerView: 3,
+        spaceBetween: 15,
+    })
+
+    var $thumbItem = $('.gal-small__item');
+    $thumbItem.first().addClass('active');
+
+    galBigSwiper.on('slideChange', function () {
+        var i = galBigSwiper.activeIndex;
+
+        $thumbItem.removeClass('active').eq(i).addClass('active');
+        galSmallSwiper.slideTo(i);
+
+        $('.project-thumb__next').toggleClass('active', galBigSwiper.slides.length !== i + 1);
+    });
+
+    $thumbItem.on('click', function () {
+        var i = $(this).closest('.swiper-slide').index();
+        $thumbItem.removeClass('active');
+        $(this).addClass('active');
+        galBigSwiper.slideTo(i);
+    });
+
     var revSwiper = new Swiper('.rev__swiper', {
 		loop: false,
         slidesPerView: 4,
@@ -49,22 +91,51 @@ jQuery(document).ready(function($){
         },
         breakpoints: {
             100: {
-                spaceBetween: 8,
+                spaceBetween: 0,
                 slidesPerView: 1,
-                loop: true,
             },
             568: {
                 slidesPerView: 2,
                 spaceBetween: 20,
-                loop: true,
             },
             768: {
                 slidesPerView: 3,
                 spaceBetween: 20,
-                loop: true,
             },
             1068: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            },
+            1240: {
                 slidesPerView: 'auto',
+                spaceBetween: 40,
+            },
+        }
+    })
+
+    var garantSwiper = new Swiper('.garant__swiper', {
+		loop: false,
+        slidesPerView: 4,
+        spaceBetween: 40,
+        navigation: {
+			nextEl: '.garant-next',
+			prevEl: '.garant-prev',
+        },
+        breakpoints: {
+            100: {
+                spaceBetween: 0,
+                slidesPerView: 1,
+            },
+            568: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1068: {
+                slidesPerView: 4,
                 spaceBetween: 40,
             },
         }
@@ -116,6 +187,69 @@ jQuery(document).ready(function($){
         $currentItem.toggleClass('active');
         $(this).siblings('.faq-item__content').slideToggle();
     });
+
+    $('.config-item__top').on('click', function (e) {
+        $('.config-item.active').not($(this).parents('.config-item')).removeClass('active');
+        $('.config-item__bottom').not($(this).siblings('.config-item__bottom')).slideUp();
+
+        var $currentItem = $(this).parents('.config-item');
+        $currentItem.toggleClass('active');
+        $(this).siblings('.config-item__bottom').slideToggle();
+    });
+
+    $(document).on('change', '.config-options__item input', function() {
+
+        // текущий выбранный элемент поменял diff внутри своей категории (этот код у тебя уже есть)
+        const $input = $(this);
+        const $item  = $input.closest('.config-item');
+        const newPrice = parseInt($input.data('price'));
+
+        // меняем верхнее название
+        const title = $input.closest('.config-options__item').find('.config-options__title span').text();
+        $item.find('.config-item__value span').text(title);
+
+        // меняем картинку
+        const img = $input.data('img');
+        $item.find('.config-choice__img img').attr('src', img);
+
+        // пересчёт diff внутри категории
+        $item.find('.config-options__item input').each(function() {
+            const $opt = $(this);
+            const optPrice = parseInt($opt.data('price'));
+            const diff = optPrice - newPrice;
+
+            const diffText =
+                diff === 0 ? '0' :
+                diff > 0 ? `+${diff}` :
+                `${diff}`;
+
+            $opt.closest('.config-options__item')
+                .find('.config-options__difference span')
+                .text(diffText);
+        });
+
+        // активная опция
+        $item.find('.config-options__item').removeClass('active');
+        $input.closest('.config-options__item').addClass('active');
+
+        // ================================================
+        //     ПЕРЕСЧЁТ ОБЩЕЙ СТОИМОСТИ (ВЕСЬ ПК)
+        // ================================================
+        let total = 0;
+
+        $('.config-options__item input:checked').each(function() {
+            total += parseInt($(this).data('price'));
+        });
+
+        // обновляем итоговую цену
+        $('.card-price__numb span').text(
+            total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        );
+
+    });
+
+
+
 })
 
 function equalizeHeights() {

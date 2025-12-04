@@ -83,6 +83,9 @@
         <ul>
             <li><a href="index.php" target="_blank">Главная</a></li>
             <li><a href="stage.php" target="_blank">Этапы заказа</a></li>
+            <li><a href="garant.php" target="_blank">Гарантия</a></li>
+            <li><a href="catalog.php" target="_blank">Каталог</a></li>
+            <li><a href="card.php" target="_blank">Карточка</a></li>
         </ul>
     </div>
     

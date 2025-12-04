@@ -3,7 +3,7 @@
     <div class="top-wrapper stage-bg anim-items">
         <div class="container">
             <div class="top stage-top">
-                <h1 class="top__title stage-top__title">ЭТАПЫ ЗАКАЗА</h1>
+                <h1 class="top__title stage-top__title"><span>ЭТАПЫ ЗАКАЗА</span></h1>
             </div>
         </div>
     </div>
@@ -56,7 +56,8 @@
                                 
                             </div>
                         </div>
-                        
+                        <button class="nav-btn nav-prev config-prev" type="button" aria-label="Предыдущий слайд"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
+                        <button class="nav-btn nav-next config-next" type="button" aria-label="Предыдущий слайд"><svg width="58" height="58"><use href="img/sprite.svg<?php echo $dev; ?>#slider-nav"></use></svg></button>
                     </div>
                 </div>
 
@@ -140,8 +141,10 @@
                     </div>
                     <div class="consult-order">
                         <div class="consult-order__desc consult-order__desc--max">
-                            <p>Как только комплектующие поступают к нам, мы высылаем Вам фотоотчет с составом заказа</p>
-                            <p>Все компоненты проходят проверку на внешние и внутренние дефекты. В случае обнаружения проблем (царапины, потертости, вскрытые пломбы), мы оперативно производим замену</p>
+                            <ul>
+                                <li>Как только комплектующие поступают к нам, мы высылаем Вам фотоотчет с составом заказа</li>
+                                <li>Все компоненты проходят проверку на внешние и внутренние дефекты. В случае обнаружения проблем (царапины, потертости, вскрытые пломбы), мы оперативно производим замену</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="consult-step">
@@ -177,47 +180,7 @@
         </div>
     </section>
     
-    <?php
-    $faq = [
-        [
-            'title'=> 'Куда обратиться в случае возникновения проблем?',
-            'desc' => 'Аккуратная сборка с идеальным кабель-менеджментом <br>для эстетики и эффективного охлаждения'
-        ],
-        [
-            'title'=> 'Как много времени займет гарантийный ремонт?',
-            'desc' => 'Обновление BIOS, настройка вентиляторов, заводской разгон оперативной памяти(XMP), оптимизация настроек BIOS'
-        ],
-        [
-            'title'=> 'Как отправить компьютер для гарантии/обслуживания?',
-            'desc' => 'Проводим стресс-тесты всех элементов под максимальной нагрузкой для проверки стабильности'
-        ],
-        [
-            'title'=> 'Что делать когда ваша гарантия закончилась, и есть неисправность?',
-            'desc' => 'Лицензионная Windows 10/11PRO с оригинальной активацией ключом. Все необходимые драйверы и программы'
-        ],
-    ];
-    ?>
-    <section class="faq-section anim-items">
-        <div class="container">
-            <div class="faq-content">
-                <h2 class="faq-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ:</h2>
-                <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
-                    <?php foreach($faq as $item): ?>
-                    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="faq-item">
-                        <div class="faq-item__title" itemprop="name">
-                            <span><?php echo $item['title']; ?></span>
-                            <div class="faq-item__icon"><svg width="15" height="9"><use href="img/sprite.svg<?php echo $dev; ?>#down"></use></svg></div>
-                        </div>
-                        <div class="faq-item__content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <div itemprop="text"><?php echo $item['desc']; ?></div>
-                        </div>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            
-        </div>
-    </section>
+    <?php include 'part/faq.php'; ?>
     
     <?php
     $find_inner = true;
