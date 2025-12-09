@@ -18,6 +18,16 @@ jQuery(document).ready(function($){
 			prevEl: '.what-prev',
         },
     })
+
+    var performanceSwiper = new Swiper('.performance__swiper', {
+		loop: false,
+        slidesPerView: 1,
+        spaceBetween: 0,
+        navigation: {
+			nextEl: '.performance-next',
+			prevEl: '.performance-prev',
+        },
+    })
     
     var galBigSwiper = new Swiper('.gal-big__swiper', {
 		loop: false,
@@ -29,6 +39,14 @@ jQuery(document).ready(function($){
 		loop: false,
         slidesPerView: 3,
         spaceBetween: 15,
+        breakpoints: {
+            100: {
+                spaceBetween: 5,
+            },
+            768: {
+                spaceBetween: 15,
+            },
+        }
     })
 
     var $thumbItem = $('.gal-small__item');
@@ -77,6 +95,113 @@ jQuery(document).ready(function($){
             1068: {
                 slidesPerView: 4,
                 spaceBetween: 28,
+            },
+        }
+    })
+
+    var prioritySwiper = new Swiper('.priority__swiper', {
+		loop: false,
+        slidesPerView: 4,
+        spaceBetween: 28,
+        navigation: {
+			nextEl: '.priority-next',
+			prevEl: '.priority-prev',
+        },
+        breakpoints: {
+            100: {
+                spaceBetween: 8,
+                slidesPerView: 1,
+            },
+            568: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1068: {
+                slidesPerView: 4,
+                spaceBetween: 28,
+            },
+        }
+    })
+
+    var receivingSwiper = new Swiper('.receiving__swiper', {
+		loop: false,
+        slidesPerView: 3,
+        spaceBetween: 80,
+        navigation: {
+			nextEl: '.receiving-next',
+			prevEl: '.receiving-prev',
+        },
+        breakpoints: {
+            100: {
+                spaceBetween: 8,
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1068: {
+                slidesPerView: 3,
+                spaceBetween: 80,
+            },
+        }
+    })
+    
+    var contactSwiper = new Swiper('.contact__swiper', {
+		loop: false,
+        slidesPerView: 4,
+        spaceBetween: 60,
+        navigation: {
+			nextEl: '.contact-next',
+			prevEl: '.contact-prev',
+        },
+        breakpoints: {
+            100: {
+                slidesPerView: 1,
+                spaceBetween: 8,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            1068: {
+                slidesPerView: 4,
+                spaceBetween: 60,
+            },
+        }
+    })
+
+    var clientsSwiper = new Swiper('.clients__swiper', {
+		loop: false,
+        slidesPerView: 4,
+        spaceBetween: 20,
+        navigation: {
+			nextEl: '.clients-next',
+			prevEl: '.clients-prev',
+        },
+        breakpoints: {
+            100: {
+                spaceBetween: 8,
+                slidesPerView: 1,
+                loop: true,
+            },
+            568: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                loop: true,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                loop: true,
+            },
+            1068: {
+                slidesPerView: 4,
+                spaceBetween: 20,
             },
         }
     })
@@ -210,7 +335,13 @@ jQuery(document).ready(function($){
 
         // меняем картинку
         const img = $input.data('img');
-        $item.find('.config-choice__img img').attr('src', img);
+        if (img) {
+            $item.find('.config-choice__img').removeClass('empty');
+            $item.find('.config-choice__img img').attr('src', img);
+        } else {
+            $item.find('.config-choice__img').addClass('empty');
+            $item.find('.config-choice__img img').attr('src', 'img/config-empty.png');
+        }
 
         // пересчёт diff внутри категории
         $item.find('.config-options__item input').each(function() {

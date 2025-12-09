@@ -26,4 +26,10 @@
 	<symbol viewBox="0 0 15 9" fill="none" id="down">
 		<path d="M13.0872 0.5L1.08716 0.5L7.08716 7.5L13.0872 0.5Z" stroke="currentColor"/>
 	</symbol>
+	<symbol viewBox="0 0 13 7" fill="none" id="down-fill">
+		<path d="M1.04904e-05 7L12.2854 7L6.14271 -6.01743e-08L1.04904e-05 7Z" fill="#162640"/>
+	</symbol>
+	<symbol viewBox="0 0 21 20" fill="none" id="trash">
+		<path d="M17.9166 4.96176C15.0756 4.68793 12.2175 4.54688 9.36797 4.54688C7.67873 4.54688 5.98949 4.62985 4.30024 4.7958L2.55981 4.96176" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.25171 4.12455L7.4394 3.03756C7.57591 2.24929 7.67828 1.66016 9.12011 1.66016H11.3554C12.7972 1.66016 12.9081 2.28248 13.0361 3.04586L13.2238 4.12455" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.0817 7.58594L15.5272 15.9416C15.4333 17.2444 15.3566 18.2567 12.9763 18.2567H7.49903C5.11873 18.2567 5.04195 17.2444 4.9481 15.9416L4.39355 7.58594" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.81299 13.6914H11.654" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.10522 10.373H12.371" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+	</symbol>
 </svg>

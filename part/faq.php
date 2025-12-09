@@ -19,6 +19,7 @@ $faq = [
 ];
 ?>
 <section class="faq-section anim-items">
+    <img src="img/faq.jpg" alt="faq" class="faq-bg" loading="lazy">
     <div class="container">
         <div class="faq-content">
             <h2 class="faq-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ:</h2>

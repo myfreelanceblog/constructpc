@@ -86,6 +86,10 @@
             <li><a href="garant.php" target="_blank">Гарантия</a></li>
             <li><a href="catalog.php" target="_blank">Каталог</a></li>
             <li><a href="card.php" target="_blank">Карточка</a></li>
+            <li><a href="delivery.php" target="_blank">Доставка</a></li>
+            <li><a href="pay.php" target="_blank">Оплата</a></li>
+            <li><a href="contact.php" target="_blank">Контакты</a></li>
+            <li><a href="cart.php" target="_blank">Корзина</a></li>
         </ul>
     </div>
     
