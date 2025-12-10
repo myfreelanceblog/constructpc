@@ -299,6 +299,11 @@ jQuery(document).ready(function($){
 		}
 	});
 
+    $(document).on('click', '.cart-char__title', function(e){
+        $(this).toggleClass('active');
+        $(this).siblings('.cart-char__content').slideToggle();
+    })
+
     $(document).on('click', '.over-bg', function(){
         $(this).remove();
         $('body').toggleClass('open-m');
@@ -321,6 +326,26 @@ jQuery(document).ready(function($){
         $currentItem.toggleClass('active');
         $(this).siblings('.config-item__bottom').slideToggle();
     });
+
+    $(document).on('click', '.method-pay .consult-box__item', function (e) {
+        $('.consult-box__item').removeClass('active');
+        $(this).addClass('active');
+    })
+
+    function slideToCart() {
+        const top = $('.cart').offset().top - $('header').outerHeight();
+        $("html, body").animate({ scrollTop: top }, 600);
+    }
+    
+    $(document).on('click', '.order-btn', function (e) {
+        $('.cart').addClass('active');
+        slideToCart()
+    })
+    
+    $(document).on('click', '.order-back', function (e) {
+        $('.cart').removeClass('active');
+        slideToCart()
+    })
 
     $(document).on('change', '.config-options__item input', function() {
 
@@ -384,7 +409,9 @@ jQuery(document).ready(function($){
 })
 
 function equalizeHeights() {
-    let items = document.querySelectorAll('.consult-box__item');
+    let items = Array.from(document.querySelectorAll('.consult-box__item'))
+        .filter(i => !i.closest('.method-pay'));
+
     let max = 0;
 
     items.forEach(i => {
